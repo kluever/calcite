@@ -30,7 +30,6 @@ import org.apache.commons.io.IOUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.base.Charsets;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -410,9 +409,9 @@ public class RuleMatchVisualizer implements RelOptListener {
         Files.createDirectories(outputDirPath);
       }
 
-      Files.write(htmlOutput, htmlContent.getBytes(Charsets.UTF_8), StandardOpenOption.CREATE,
+      Files.write(htmlOutput, htmlContent.getBytes(StandardCharsets.UTF_8), StandardOpenOption.CREATE,
           StandardOpenOption.TRUNCATE_EXISTING);
-      Files.write(dataOutput, dataJsContent.getBytes(Charsets.UTF_8), StandardOpenOption.CREATE,
+      Files.write(dataOutput, dataJsContent.getBytes(StandardCharsets.UTF_8), StandardOpenOption.CREATE,
           StandardOpenOption.TRUNCATE_EXISTING);
     } catch (IOException e) {
       throw new UncheckedIOException(e);

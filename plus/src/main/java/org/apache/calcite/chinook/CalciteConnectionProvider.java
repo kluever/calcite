@@ -16,12 +16,12 @@
  */
 package org.apache.calcite.chinook;
 
-import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -48,7 +48,7 @@ public class CalciteConnectionProvider {
   private String provideSchema() throws IOException {
     final InputStream stream =
         getClass().getResourceAsStream("/chinook/chinook.json");
-    return CharStreams.toString(new InputStreamReader(stream, Charsets.UTF_8));
+    return CharStreams.toString(new InputStreamReader(stream, StandardCharsets.UTF_8));
   }
 
 }
